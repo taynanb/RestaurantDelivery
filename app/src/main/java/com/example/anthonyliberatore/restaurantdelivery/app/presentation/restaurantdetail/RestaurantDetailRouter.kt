@@ -17,7 +17,9 @@ class RestaurantDetailRouter(private val activityRef: WeakReference<Activity>) {
 
     fun navigate(route: Route, bundle: Bundle = Bundle()) {
         when (route) {
-            Route.IMAGE_DETAIL -> { showNextScreen(ImageDetailActivity::class.java, bundle) }
+            Route.IMAGE_DETAIL -> {
+                showNextScreen(ImageDetailActivity::class.java, bundle)
+            }
         }
     }
 

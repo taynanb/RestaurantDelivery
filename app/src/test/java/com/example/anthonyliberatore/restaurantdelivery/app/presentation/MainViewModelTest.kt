@@ -6,7 +6,12 @@ import com.domain.usecase.GetRestaurantListUseCase.Result
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.main.MainRouter
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.main.MainViewModel
 import com.example.anthonyliberatore.restaurantdelivery.app.rx.RxJavaTestHooksResetRule
-import com.nhaarman.mockito_kotlin.*
+import com.nhaarman.mockito_kotlin.any
+import com.nhaarman.mockito_kotlin.doReturn
+import com.nhaarman.mockito_kotlin.eq
+import com.nhaarman.mockito_kotlin.given
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import io.reactivex.Observable
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
@@ -22,8 +27,10 @@ class MainViewModelTest {
     @get:Rule
     var rxJavaTestHooksResetRule = RxJavaTestHooksResetRule()
 
-    @Mock lateinit var getRestaurantListUseCase: GetRestaurantListUseCase
-    @Mock lateinit var mainRouter: MainRouter
+    @Mock
+    lateinit var getRestaurantListUseCase: GetRestaurantListUseCase
+    @Mock
+    lateinit var mainRouter: MainRouter
     private lateinit var sut: MainViewModel
 
     @Before

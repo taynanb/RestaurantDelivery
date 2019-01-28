@@ -3,14 +3,13 @@ package com.example.anthonyliberatore.restaurantdelivery.app.presentation.main
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableBoolean
 import android.os.Bundle
-import android.support.annotation.VisibleForTesting
-import com.example.anthonyliberatore.restaurantdelivery.app.ext.addTo
-import com.example.anthonyliberatore.restaurantdelivery.app.rx.StickyAction
 import com.domain.model.Restaurant
 import com.domain.usecase.GetRestaurantListUseCase
 import com.domain.usecase.GetRestaurantListUseCase.Result
+import com.example.anthonyliberatore.restaurantdelivery.app.ext.addTo
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.imagedetail.ImageDetailActivity
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.restaurantdetail.RestaurantDetailActivity
+import com.example.anthonyliberatore.restaurantdelivery.app.rx.StickyAction
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -63,8 +62,8 @@ class MainViewModel @Inject constructor(
     // Shows restaurant detail screen based on restaurant clicked
     fun onRestaurantClicked(restaurant: Any) {
         mainRouter.navigate(MainRouter.Route.RESTAURANT_DETAIL, Bundle().apply {
-                    putInt(RestaurantDetailActivity.EXTRA_RESTAURANT_ID, (restaurant as Restaurant).id)
-                })
+            putInt(RestaurantDetailActivity.EXTRA_RESTAURANT_ID, (restaurant as Restaurant).id)
+        })
     }
 
     // Shows image detail screen based on restaurant clicked

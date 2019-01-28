@@ -10,9 +10,9 @@ import dagger.Subcomponent
 @Subcomponent(modules = [ScreenModule::class])
 interface ScreenComponent {
 
-  fun inject(mainActivity: MainActivity)
+    fun inject(mainActivity: MainActivity)
 
-  fun inject(restaurantDetailActivity: RestaurantDetailActivity)
+    fun inject(restaurantDetailActivity: RestaurantDetailActivity)
 
-  fun inject(imageDetailActivity: ImageDetailActivity)
+    fun inject(imageDetailActivity: ImageDetailActivity)
 }

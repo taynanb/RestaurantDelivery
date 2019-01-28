@@ -16,26 +16,26 @@ class RestaurantRepositoryImpl(
         private val restaurantMapper: RestaurantMapper
 ) : RestaurantRepository {
 
-  /**
-   * getRestaurantList
-   * @return Single<List<Restaurant>> list of nearby restaurants
-   * @param lat Latitude of the user
-   * @param lng Longitude of the user
-   * @param offset the offset of the list to be retrieved
-   * @param limit the number of restaurants to be retrieved
-   */
-  override fun getRestaurantList(lat: Double, lng: Double, offset: Int, limit: Int): Single<List<Restaurant>> {
-    return restaurantApi.getRestaurantList(lat, lng, offset, limit)
-        .map { restaurantMapper.map(it) }
-  }
+    /**
+     * getRestaurantList
+     * @return Single<List<Restaurant>> list of nearby restaurants
+     * @param lat Latitude of the user
+     * @param lng Longitude of the user
+     * @param offset the offset of the list to be retrieved
+     * @param limit the number of restaurants to be retrieved
+     */
+    override fun getRestaurantList(lat: Double, lng: Double, offset: Int, limit: Int): Single<List<Restaurant>> {
+        return restaurantApi.getRestaurantList(lat, lng, offset, limit)
+                .map { restaurantMapper.map(it) }
+    }
 
-  /**
-   * getRestaurant
-   * @return Single<Restaurant> Restaurant details
-   * @param id the id of restaurant to be retrieved
-   */
-  override fun getRestaurant(id: Int): Single<Restaurant> {
-    return restaurantApi.getRestaurant(id)
-        .map { restaurantMapper.map(it) }
-  }
+    /**
+     * getRestaurant
+     * @return Single<Restaurant> Restaurant details
+     * @param id the id of restaurant to be retrieved
+     */
+    override fun getRestaurant(id: Int): Single<Restaurant> {
+        return restaurantApi.getRestaurant(id)
+                .map { restaurantMapper.map(it) }
+    }
 }

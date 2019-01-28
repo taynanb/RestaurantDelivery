@@ -11,10 +11,10 @@ import javax.inject.Singleton
 @Module
 class RepositoryModule {
 
-  @Provides
-  @Singleton
-  fun provideRestaurantRepository(restaurantApi: RestaurantApi, restaurantMapper: RestaurantMapper): RestaurantRepository {
-    return RestaurantRepositoryImpl(restaurantApi, restaurantMapper)
-  }
+    @Provides
+    @Singleton
+    fun provideRestaurantRepository(restaurantApi: RestaurantApi, restaurantMapper: RestaurantMapper): RestaurantRepository {
+        return RestaurantRepositoryImpl(restaurantApi, restaurantMapper)
+    }
 
 }

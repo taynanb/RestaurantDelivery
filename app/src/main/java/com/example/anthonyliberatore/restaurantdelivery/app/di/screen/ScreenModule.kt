@@ -11,21 +11,21 @@ import java.lang.ref.WeakReference
 @Module
 class ScreenModule(private val activity: BaseActivity) {
 
-  @PerScreen
-  @Provides
-  fun providesActivity(): BaseActivity {
-    return activity
-  }
+    @PerScreen
+    @Provides
+    fun providesActivity(): BaseActivity {
+        return activity
+    }
 
-  @PerScreen
-  @Provides
-  fun providesMainRouter(): MainRouter {
-    return MainRouter(WeakReference(activity))
-  }
+    @PerScreen
+    @Provides
+    fun providesMainRouter(): MainRouter {
+        return MainRouter(WeakReference(activity))
+    }
 
-  @PerScreen
-  @Provides
-  fun providesRestaurantDetailRouter(): RestaurantDetailRouter {
-    return RestaurantDetailRouter(WeakReference(activity))
-  }
+    @PerScreen
+    @Provides
+    fun providesRestaurantDetailRouter(): RestaurantDetailRouter {
+        return RestaurantDetailRouter(WeakReference(activity))
+    }
 }

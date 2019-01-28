@@ -12,12 +12,12 @@ import com.squareup.picasso.Picasso
 
 @BindingConversion
 fun setVisibility(state: Boolean): Int {
-  return if (state) View.VISIBLE else View.GONE
+    return if (state) View.VISIBLE else View.GONE
 }
 
 @BindingAdapter("imageUrl")
 fun loadImage(imageView: ImageView, url: String?) {
-  if (url != null) {
-    Picasso.get().load(url).into(imageView)
-  }
+    if (url != null) {
+        Picasso.get().load(url).into(imageView)
+    }
 }

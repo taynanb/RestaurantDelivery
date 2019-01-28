@@ -12,19 +12,19 @@ import javax.inject.Singleton
 @Module
 class ApplicationModule(private val application: BaseApplication) {
 
-  @Provides
-  @Singleton
-  fun provideApplication(): BaseApplication {
-    return application
-  }
+    @Provides
+    @Singleton
+    fun provideApplication(): BaseApplication {
+        return application
+    }
 
-  @Provides
-  @Singleton
-  fun provideRetrofit(): Retrofit {
-    return Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create(Gson()))
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .baseUrl("https://api.doordash.com/v2/")
-        .build()
-  }
+    @Provides
+    @Singleton
+    fun provideRetrofit(): Retrofit {
+        return Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(Gson()))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl("https://api.doordash.com/v2/")
+                .build()
+    }
 }

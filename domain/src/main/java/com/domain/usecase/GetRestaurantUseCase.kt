@@ -17,17 +17,17 @@ import javax.inject.Inject
  */
 class GetRestaurantUseCase @Inject constructor(private val restaurantRepository: RestaurantRepository) {
 
-  sealed class Result {
-    object Loading : Result()
-    data class Success(val restaurant: Restaurant) : Result()
-    data class Failure(val throwable: Throwable) : Result()
-  }
+    sealed class Result {
+        object Loading : Result()
+        data class Success(val restaurant: Restaurant) : Result()
+        data class Failure(val throwable: Throwable) : Result()
+    }
 
-  fun execute(id: Int): Observable<Result> {
-    return restaurantRepository.getRestaurant(id)
-        .toObservable()
-        .map { Success(it) as Result }
-        .onErrorReturn { Failure(it) }
-        .startWith(Loading)
-  }
+    fun execute(id: Int): Observable<Result> {
+        return restaurantRepository.getRestaurant(id)
+                .toObservable()
+                .map { Success(it) as Result }
+                .onErrorReturn { Failure(it) }
+                .startWith(Loading)
+    }
 }

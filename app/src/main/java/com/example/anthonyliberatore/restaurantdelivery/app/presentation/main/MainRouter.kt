@@ -17,10 +17,14 @@ class MainRouter(private val activityRef: WeakReference<Activity>) {
         RESTAURANT_DETAIL
     }
 
-    fun navigate(route: Route, bundle:Bundle = Bundle()) {
+    fun navigate(route: Route, bundle: Bundle = Bundle()) {
         when (route) {
-            Route.IMAGE_DETAIL -> { showNextScreen(ImageDetailActivity::class.java, bundle) }
-            Route.RESTAURANT_DETAIL -> { showNextScreen(RestaurantDetailActivity::class.java, bundle) }
+            Route.IMAGE_DETAIL -> {
+                showNextScreen(ImageDetailActivity::class.java, bundle)
+            }
+            Route.RESTAURANT_DETAIL -> {
+                showNextScreen(RestaurantDetailActivity::class.java, bundle)
+            }
         }
     }
 

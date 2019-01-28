@@ -9,10 +9,10 @@ import javax.inject.Singleton
 @Module
 class EndpointModule {
 
-  @Provides
-  @Singleton
-  fun provideRestaurantEndpoint(retrofit: Retrofit): RestaurantEndpoint {
-    return retrofit
-        .create(RestaurantEndpoint::class.java)
-  }
+    @Provides
+    @Singleton
+    fun provideRestaurantEndpoint(retrofit: Retrofit): RestaurantEndpoint {
+        return retrofit
+                .create(RestaurantEndpoint::class.java)
+    }
 }

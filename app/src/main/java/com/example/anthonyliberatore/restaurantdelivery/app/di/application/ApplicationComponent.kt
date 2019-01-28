@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Component(modules = [ApplicationModule::class, RepositoryModule::class, EndpointModule::class])
 interface ApplicationComponent {
 
-  fun inject(activity: BaseApplication)
+    fun inject(activity: BaseApplication)
 
-  fun plus(screenModule: ScreenModule): ScreenComponent
+    fun plus(screenModule: ScreenModule): ScreenComponent
 }

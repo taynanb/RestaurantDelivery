@@ -1,11 +1,11 @@
 package com.example.anthonyliberatore.restaurantdelivery.app.presentation.main
 
 import android.app.Activity
-import com.nhaarman.mockito_kotlin.*
+import com.nhaarman.mockito_kotlin.anyOrNull
+import com.nhaarman.mockito_kotlin.verify
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 import java.lang.ref.WeakReference
@@ -13,7 +13,8 @@ import java.lang.ref.WeakReference
 @RunWith(MockitoJUnitRunner::class)
 class MainRouterTest {
 
-    @Mock lateinit var activity: Activity
+    @Mock
+    lateinit var activity: Activity
 
     private lateinit var sut: MainRouter
 
