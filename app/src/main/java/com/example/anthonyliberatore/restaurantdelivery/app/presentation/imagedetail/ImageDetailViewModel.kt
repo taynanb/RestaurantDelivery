@@ -1,9 +1,8 @@
 package com.example.anthonyliberatore.restaurantdelivery.app.presentation.imagedetail
 
 import android.databinding.ObservableField
-import javax.inject.Inject
 
-class ImageDetailViewModel @Inject constructor() {
+class ImageDetailViewModel {
 
     val imageUrl = ObservableField<String>()
 

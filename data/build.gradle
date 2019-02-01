@@ -32,22 +32,8 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    //Dagger
-    implementation 'com.google.dagger:dagger-android:2.12'
-    implementation 'com.google.dagger:dagger-android-support:2.12'
-    kapt 'com.google.dagger:dagger-android-processor:2.12'
-    kapt 'com.google.dagger:dagger-compiler:2.12'
-
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    compileOnly "javax.annotation:jsr250-api:$javax_annotation_version"
-    implementation "com.google.dagger:dagger:$dagger_version"
-
-    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
-    testCompileOnly "javax.annotation:jsr250-api:$javax_annotation_version"
-    testImplementation "com.google.dagger:dagger:$dagger_version"
-    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
-    androidTestCompileOnly "javax.annotation:jsr250-api:$javax_annotation_version"
-    androidTestImplementation "com.google.dagger:dagger:$dagger_version"
+    // Kodein
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
 
     //Rx
     implementation "io.reactivex.rxjava2:rxjava:$rx_java2_version"

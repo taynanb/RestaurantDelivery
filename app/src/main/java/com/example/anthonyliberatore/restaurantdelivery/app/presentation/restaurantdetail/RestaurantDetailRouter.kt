@@ -9,7 +9,7 @@ import java.lang.ref.WeakReference
 /**
  * RestaurantDetailRouter handles navigation for the RestaurantDetail Screen
  */
-class RestaurantDetailRouter(private val activityRef: WeakReference<Activity>) {
+class RestaurantDetailRouter(private val activityRef: Activity) {
 
     enum class Route {
         IMAGE_DETAIL,
@@ -24,6 +24,6 @@ class RestaurantDetailRouter(private val activityRef: WeakReference<Activity>) {
     }
 
     private fun showNextScreen(clazz: Class<*>, bundle: Bundle?) {
-        activityRef.get()?.startActivity(Intent(activityRef.get(), clazz).putExtras(bundle))
+        activityRef.startActivity(Intent(activityRef, clazz).putExtras(bundle))
     }
 }

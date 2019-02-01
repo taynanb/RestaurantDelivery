@@ -7,21 +7,19 @@ import com.example.anthonyliberatore.restaurantdelivery.R.layout
 import com.example.anthonyliberatore.restaurantdelivery.R.string
 import com.example.anthonyliberatore.restaurantdelivery.app.ext.addTo
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.BaseActivity
+import com.example.anthonyliberatore.restaurantdelivery.databinding.ActivityRestaurantDetailBinding
 import io.reactivex.disposables.CompositeDisposable
-import javax.inject.Inject
+import org.kodein.di.generic.instance
 
 class RestaurantDetailActivity : BaseActivity() {
 
-    @Inject
-    lateinit var viewModel: RestaurantDetailViewModel
+    val viewModel: RestaurantDetailViewModel by instance()
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityRestaurantDetailBinding = DataBindingUtil.setContentView(this,
                 layout.activity_restaurant_detail)
-
-        screenComponent.inject(this)
 
         binding.viewModel = viewModel
         viewModel.bound(intent.getIntExtra(EXTRA_RESTAURANT_ID, -1))

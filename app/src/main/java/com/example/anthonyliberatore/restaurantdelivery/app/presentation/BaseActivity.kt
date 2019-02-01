@@ -1,17 +1,26 @@
 package com.example.anthonyliberatore.restaurantdelivery.app.presentation
 
 import android.support.v7.app.AppCompatActivity
-import com.example.anthonyliberatore.restaurantdelivery.app.BaseApplication
-import com.example.anthonyliberatore.restaurantdelivery.app.di.application.ApplicationComponent
 import com.example.anthonyliberatore.restaurantdelivery.app.di.screen.ScreenModule
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.closestKodein
 
-open class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), KodeinAware {
 
-    val screenComponent by lazy {
-        getApplicationComponent().plus(ScreenModule(this))
+    private val _parentKodein by closestKodein()
+
+    override val kodein: Kodein = Kodein.lazy {
+        extend(_parentKodein)
+        import(ScreenModule(this@BaseActivity).module)
     }
 
-    private fun getApplicationComponent(): ApplicationComponent {
-        return (application as BaseApplication).component
-    }
+
+//    val screenComponent by lazy {
+        //        getApplicationComponent().plus(ScreenModule(this))
+//    }
+
+//    private fun getApplicationComponent(): ApplicationComponent {
+//        return (application as BaseApplication).component
+//    }
 }

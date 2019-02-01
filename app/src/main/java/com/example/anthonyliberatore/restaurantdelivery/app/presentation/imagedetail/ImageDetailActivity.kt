@@ -4,7 +4,8 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import com.example.anthonyliberatore.restaurantdelivery.R
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.BaseActivity
-import javax.inject.Inject
+import com.example.anthonyliberatore.restaurantdelivery.databinding.ActivityImageDetailBinding
+import org.kodein.di.generic.instance
 
 class ImageDetailActivity : BaseActivity() {
 
@@ -12,13 +13,10 @@ class ImageDetailActivity : BaseActivity() {
         const val EXTRA_URL = "URL"
     }
 
-    @Inject
-    lateinit var viewModel: ImageDetailViewModel
+    val viewModel: ImageDetailViewModel by instance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        screenComponent.inject(this)
 
         val binding: ActivityImageDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_image_detail)
         binding.viewModel = viewModel
