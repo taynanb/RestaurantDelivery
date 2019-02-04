@@ -9,14 +9,21 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.anthonyliberatore.restaurantdelivery.R.layout
 import com.example.anthonyliberatore.restaurantdelivery.R.string
+import com.example.anthonyliberatore.restaurantdelivery.app.di.screen.MainActivityModule
 import com.example.anthonyliberatore.restaurantdelivery.app.ext.addTo
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.BaseActivity
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.adapter.RestaurantListAdapter
 import com.example.anthonyliberatore.restaurantdelivery.databinding.ActivityMainBinding
 import io.reactivex.disposables.CompositeDisposable
+import org.kodein.di.Kodein
 import org.kodein.di.generic.instance
 
 class MainActivity : BaseActivity() {
+
+    override val kodein: Kodein = Kodein.lazy {
+        extend(parentKodein)
+        import(MainActivityModule().module)
+    }
 
     val viewModel: MainViewModel by instance()
     private val disposables = CompositeDisposable()
@@ -24,8 +31,6 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, layout.activity_main)
-
-//        screenComponent.inject(this)
 
         binding.viewModel = viewModel
         viewModel.bound()

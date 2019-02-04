@@ -10,20 +10,7 @@ class BaseApplication : Application(), KodeinAware {
 
     override val kodein = Kodein.lazy {
         import(androidModule(this@BaseApplication))
-        import(ApplicationModule(this@BaseApplication).module)
+        import(ApplicationModule().module)
     }
 
-//    lateinit var component: ApplicationComponent
-
-    override fun onCreate() {
-        super.onCreate()
-
-        inject()
-    }
-
-    fun inject() {
-//        component = DaggerApplicationComponent.builder().applicationModule(
-//                ApplicationModule(this)).build()
-//        component.inject(this)
-    }
 }

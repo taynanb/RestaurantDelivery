@@ -16,7 +16,7 @@ class EndpointModule {
         }
 
         bind<RestaurantApi>() with singleton {
-            RestaurantApi(instance())
+            RestaurantApi(restaurantEndpoint = instance())
         }
     }
 

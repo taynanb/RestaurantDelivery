@@ -16,7 +16,7 @@ class RepositoryModule {
         }
 
         bind<RestaurantRepository>() with singleton {
-            RestaurantRepositoryImpl(instance(), instance())
+            RestaurantRepositoryImpl(restaurantApi = instance(), restaurantMapper = instance())
         }
     }
 

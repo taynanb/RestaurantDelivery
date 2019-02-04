@@ -5,13 +5,21 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.example.anthonyliberatore.restaurantdelivery.R.layout
 import com.example.anthonyliberatore.restaurantdelivery.R.string
+import com.example.anthonyliberatore.restaurantdelivery.app.di.screen.MainActivityModule
+import com.example.anthonyliberatore.restaurantdelivery.app.di.screen.RestaurantDetailActivityModule
 import com.example.anthonyliberatore.restaurantdelivery.app.ext.addTo
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.BaseActivity
 import com.example.anthonyliberatore.restaurantdelivery.databinding.ActivityRestaurantDetailBinding
 import io.reactivex.disposables.CompositeDisposable
+import org.kodein.di.Kodein
 import org.kodein.di.generic.instance
 
 class RestaurantDetailActivity : BaseActivity() {
+
+    override val kodein: Kodein = Kodein.lazy {
+        extend(parentKodein)
+        import(RestaurantDetailActivityModule().module)
+    }
 
     val viewModel: RestaurantDetailViewModel by instance()
     private val disposables = CompositeDisposable()
