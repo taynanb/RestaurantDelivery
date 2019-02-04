@@ -10,13 +10,14 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 import org.kodein.di.generic.scoped
 import org.kodein.di.generic.singleton
+import java.lang.ref.WeakReference
 
 class MainActivityModule {
 
     val module = Kodein.Module("MainActivityModule") {
 
         bind<MainRouter>() with scoped(WeakContextScope.of<Activity>()).singleton {
-            MainRouter(context)
+            MainRouter(WeakReference(context))
         }
 
         bind<MainViewModel>() with scoped(WeakContextScope.of<Activity>()).singleton {

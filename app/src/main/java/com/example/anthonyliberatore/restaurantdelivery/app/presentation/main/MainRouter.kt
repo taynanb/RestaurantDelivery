@@ -10,7 +10,7 @@ import java.lang.ref.WeakReference
 /**
  * MainRouter handles navigation for the MainActivity
  */
-class MainRouter(private val activityRef: Activity) {
+class MainRouter(private val activityRef: WeakReference<Activity>) {
 
     enum class Route {
         IMAGE_DETAIL,
@@ -29,6 +29,8 @@ class MainRouter(private val activityRef: Activity) {
     }
 
     private fun showNextScreen(clazz: Class<*>, bundle: Bundle?) {
-        activityRef.startActivity(Intent(activityRef, clazz).putExtras(bundle))
+        activityRef.get()?.let {
+            it.startActivity(Intent(it, clazz).putExtras(bundle))
+        }
     }
 }

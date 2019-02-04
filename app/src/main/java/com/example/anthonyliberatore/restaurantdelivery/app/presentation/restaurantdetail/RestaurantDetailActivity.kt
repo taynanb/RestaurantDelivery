@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import com.example.anthonyliberatore.restaurantdelivery.R.layout
 import com.example.anthonyliberatore.restaurantdelivery.R.string
-import com.example.anthonyliberatore.restaurantdelivery.app.di.screen.MainActivityModule
 import com.example.anthonyliberatore.restaurantdelivery.app.di.screen.RestaurantDetailActivityModule
 import com.example.anthonyliberatore.restaurantdelivery.app.ext.addTo
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.BaseActivity

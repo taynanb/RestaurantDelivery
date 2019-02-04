@@ -10,13 +10,14 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 import org.kodein.di.generic.scoped
 import org.kodein.di.generic.singleton
+import java.lang.ref.WeakReference
 
 class RestaurantDetailActivityModule {
 
     val module = Kodein.Module("RestaurantDetailActivityModule") {
 
         bind<RestaurantDetailRouter>() with scoped(WeakContextScope.of<Activity>()).singleton {
-            RestaurantDetailRouter(context)
+            RestaurantDetailRouter(WeakReference(context))
         }
 
         bind<GetRestaurantUseCase>() with singleton {
