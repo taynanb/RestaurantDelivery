@@ -1,18 +1,24 @@
 package com.example.anthonyliberatore.restaurantdelivery.app.di.application
 
+import com.data.RestaurantApi
 import com.data.RestaurantEndpoint
-import dagger.Module
-import dagger.Provides
+import org.kodein.di.Kodein
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.instance
+import org.kodein.di.generic.singleton
 import retrofit2.Retrofit
-import javax.inject.Singleton
 
-@Module
 class EndpointModule {
 
-    @Provides
-    @Singleton
-    fun provideRestaurantEndpoint(retrofit: Retrofit): RestaurantEndpoint {
-        return retrofit
-                .create(RestaurantEndpoint::class.java)
+    val module = Kodein.Module("EndpointModule") {
+        bind<RestaurantEndpoint>() with singleton {
+            instance<Retrofit>().create(RestaurantEndpoint::class.java)
+        }
+
+        bind<RestaurantApi>() with singleton {
+            RestaurantApi(restaurantEndpoint = instance())
+        }
     }
+
 }
+

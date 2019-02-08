@@ -13,9 +13,8 @@ import com.example.anthonyliberatore.restaurantdelivery.app.rx.StickyAction
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class MainViewModel constructor(
         private val getRestaurantListUseCase: GetRestaurantListUseCase,
         private val mainRouter: MainRouter
 ) {

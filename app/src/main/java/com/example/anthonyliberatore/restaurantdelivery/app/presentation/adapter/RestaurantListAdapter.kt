@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.domain.model.Restaurant
 import com.example.anthonyliberatore.restaurantdelivery.app.presentation.adapter.RestaurantListAdapter.Holder
+import com.example.anthonyliberatore.restaurantdelivery.databinding.ListItemRestaurantBinding
 import com.squareup.picasso.Picasso
 
 /**

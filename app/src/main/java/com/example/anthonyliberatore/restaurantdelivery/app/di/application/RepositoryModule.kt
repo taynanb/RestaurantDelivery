@@ -1,20 +1,23 @@
 package com.example.anthonyliberatore.restaurantdelivery.app.di.application
 
-import com.data.RestaurantApi
 import com.data.mapper.RestaurantMapper
 import com.data.repository.RestaurantRepositoryImpl
 import com.domain.repository.RestaurantRepository
-import dagger.Module
-import dagger.Provides
-import javax.inject.Singleton
+import org.kodein.di.Kodein
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.instance
+import org.kodein.di.generic.singleton
 
-@Module
 class RepositoryModule {
 
-    @Provides
-    @Singleton
-    fun provideRestaurantRepository(restaurantApi: RestaurantApi, restaurantMapper: RestaurantMapper): RestaurantRepository {
-        return RestaurantRepositoryImpl(restaurantApi, restaurantMapper)
+    val module = Kodein.Module("RepositoryModule") {
+        bind<RestaurantMapper>() with singleton {
+            RestaurantMapper()
+        }
+
+        bind<RestaurantRepository>() with singleton {
+            RestaurantRepositoryImpl(restaurantApi = instance(), restaurantMapper = instance())
+        }
     }
 
 }

@@ -6,7 +6,6 @@ import com.domain.usecase.GetRestaurantListUseCase.Result.Failure
 import com.domain.usecase.GetRestaurantListUseCase.Result.Loading
 import com.domain.usecase.GetRestaurantListUseCase.Result.Success
 import io.reactivex.Observable
-import javax.inject.Inject
 
 /**
  * GetRestaurantListUseCase
@@ -15,7 +14,7 @@ import javax.inject.Inject
  * Additional business logic related to the list can be performed here
  * @param restaurantRepository repository to get the list from
  */
-class GetRestaurantListUseCase @Inject constructor(private val restaurantRepository: RestaurantRepository) {
+class GetRestaurantListUseCase constructor(private val restaurantRepository: RestaurantRepository) {
 
     sealed class Result {
         object Loading : Result()

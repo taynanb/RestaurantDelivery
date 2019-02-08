@@ -24,6 +24,8 @@ class RestaurantDetailRouter(private val activityRef: WeakReference<Activity>) {
     }
 
     private fun showNextScreen(clazz: Class<*>, bundle: Bundle?) {
-        activityRef.get()?.startActivity(Intent(activityRef.get(), clazz).putExtras(bundle))
+        activityRef.get()?.let {
+            it.startActivity(Intent(it, clazz).putExtras(bundle))
+        }
     }
 }

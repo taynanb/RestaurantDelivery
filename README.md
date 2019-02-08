@@ -15,7 +15,7 @@ This pattern will consist of three modules - Data, Domain, and Application.
 **Application** is responsible for the presenation layer (**MVVM** will live here) as well as Android components. This module can be submoduled. For example, it may make sense to have a device module that handles camera, location, sensors, etc.
 
 ### Libraries
-**Dagger** is used to handle dependency injection. 
+**Kodein** is used to handle dependency injection.
 
 **RxJava** is used to handle streams of data. Since this is a simple project, it is only lightly using RxJava. We use it as a Retrofit call adapter, and manipulate the data downstream. We also a BehaviorSubject wrapper called a StickyAction. This allows the View to observe changes in the ViewModel. A StickyAction handles nulls, and consumes the values when observed. A normal BehvaiorSubject will keep the latest value for any new observer to see.
 
